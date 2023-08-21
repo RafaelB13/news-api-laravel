@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Article;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,9 +18,24 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'Rafael Borges',
+            'email' => 'rafaelborgesdev@gmail.com',
+            'password' => bcrypt('rafael13'),
+            'role' => 'admin',
+        ]);
+
+        User::factory()->create([
+            'name' => 'Bianca Sanches',
+            'email' => 'bianca.sanches@appventura.com',
+            'password' => bcrypt('rafael13'),
+            'role' => 'editor',
+        ]);
+
+        Category::factory(67)->create();
+        Article::factory(123)->create();
+
+
+
     }
 }
